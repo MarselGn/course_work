@@ -27,7 +27,7 @@ def get_format_data(data):
         if 'from' in value:
             if len([int(i) for i in value['from'] if i.isdigit()]) == 16:
                 from_card = value['from'].split()[-1]
-                secret_card = value['from'].split()[0] + ' ' + from_card[:4] + ' ' + from_card[5:7] + '**' + ' ' + '****' + ' ' + from_card[-4:]
+                secret_card = ' '.join(value['from'].split()[:-1]) + ' ' + from_card[:4] + ' ' + from_card[5:7] + '**' + ' ' + '****' + ' ' + from_card[-4:]
             else:
                 from_card = value['from'].split()[-1]
                 secret_card = value['from'].split()[0] + ' ' + '*' * len(from_card[6:-4]) + from_card[-4:]
